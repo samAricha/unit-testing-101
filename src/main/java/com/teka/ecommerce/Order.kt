@@ -1,4 +1,4 @@
-package io.automationhacks.ecommerce
+package com.teka.ecommerce
 
 class Order(private val product: String, private val quantity: Int) {
     private lateinit var warehouse: Warehouse

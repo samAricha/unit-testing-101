@@ -1,4 +1,4 @@
-package io.automationhacks.ecommerce
+package com.teka.ecommerce
 
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test

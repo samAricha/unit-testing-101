@@ -1,4 +1,4 @@
-package io.automationhacks
+package com.teka
 
 import org.junit.jupiter.api.Test
 

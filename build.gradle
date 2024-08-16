@@ -3,7 +3,7 @@ plugins {
     id 'org.jetbrains.kotlin.jvm' version '1.8.10'
 }
 
-group 'io.automationhacks'
+group 'com.teka'
 version '1.0-SNAPSHOT'
 
 repositories {

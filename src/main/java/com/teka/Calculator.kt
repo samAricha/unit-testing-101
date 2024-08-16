@@ -1,4 +1,4 @@
-package io.automationhacks
+package com.teka
 
 class Calculator {
     fun add(first: Int, second: Int): Int {

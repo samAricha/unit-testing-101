@@ -1,4 +1,4 @@
-package io.automationhacks.ecommerce
+package com.teka.ecommerce
 
 class Warehouse {
     private val warehouse: HashMap<String, Int> = hashMapOf()
