@@ -17,8 +17,8 @@ class OrderInteractionTest {
         `when`(warehouseMock.getInventory(LAPTOP)).thenReturn(0)
         `when`(warehouseMock.remove(LAPTOP, 50)).thenReturn(true)
 
-        order.fill(warehouseMock)
-        assertTrue(order.isFilled())
+        order.fulFill(warehouseMock)
+        assertTrue(order.isFulfilled())
         assertEquals(0, warehouseMock.getInventory(LAPTOP))
     }
 
@@ -29,8 +29,8 @@ class OrderInteractionTest {
         `when`(warehouseMock.getInventory(LAPTOP)).thenReturn(50)
         `when`(warehouseMock.remove(LAPTOP, 50)).thenReturn(false)
 
-        order.fill(warehouseMock)
-        assertFalse(order.isFilled())
+        order.fulFill(warehouseMock)
+        assertFalse(order.isFulfilled())
         assertEquals(50, warehouseMock.getInventory(LAPTOP))
     }
 }

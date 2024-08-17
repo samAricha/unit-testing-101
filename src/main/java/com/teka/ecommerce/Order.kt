@@ -2,14 +2,14 @@ package com.teka.ecommerce
 
 class Order(private val product: String, private val quantity: Int) {
     private lateinit var warehouse: Warehouse
-    private var isFilled: Boolean = false
+    private var isFulfilled: Boolean = false
 
-    fun fill(warehouse: Warehouse) {
+    fun fulFill(warehouse: Warehouse) {
         this.warehouse = warehouse
-        isFilled = this.warehouse.remove(product, quantity)
+        isFulfilled = this.warehouse.remove(product, quantity)
     }
 
-    fun isFilled(): Boolean {
-        return isFilled
+    fun isFulfilled(): Boolean {
+        return isFulfilled
     }
 }

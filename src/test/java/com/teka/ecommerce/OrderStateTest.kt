@@ -20,16 +20,16 @@ class OrderStateTest {
     @Test
     fun `test order is fulfilled if capacity in warehouse is sufficient`() {
         val order = Order(LAPTOP, 20)
-        order.fill(warehouse)
-        assertTrue(order.isFilled())
+        order.fulFill(warehouse)
+        assertTrue(order.isFulfilled())
         assertEquals(30, warehouse.getInventory(LAPTOP))
     }
 
     @Test
     fun `test order is not fulfilled if capacity in warehouse is insufficient`() {
         val order = Order(MOUSE, 21)
-        order.fill(warehouse)
-        assertFalse(order.isFilled())
+        order.fulFill(warehouse)
+        assertFalse(order.isFulfilled())
         assertEquals(20, warehouse.getInventory(MOUSE))
     }
 
