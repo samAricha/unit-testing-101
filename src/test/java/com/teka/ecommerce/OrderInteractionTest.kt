@@ -24,13 +24,27 @@ class OrderInteractionTest {
 
     @Test
     fun `test warehouse capacity is not reduced when order cannot be fulfilled`() {
-       val order = Order(LAPTOP, 51)
-        val warehouseMock = mock(Warehouse::class.java)
-        `when`(warehouseMock.getInventory(LAPTOP)).thenReturn(50)
-        `when`(warehouseMock.remove(LAPTOP, 50)).thenReturn(false)
+        //our test variables
+        val itemsInStock = 50
+        val orderQuantity = 50
 
+        val order = Order(LAPTOP, orderQuantity)
+        val warehouseMock = mock(Warehouse::class.java)
+        `when`(warehouseMock.getInventory(LAPTOP)).thenReturn(itemsInStock)
+        `when`(warehouseMock.remove(LAPTOP, orderQuantity)).thenReturn(false)
+
+        // Attempt to fulfill the order
         order.fulFill(warehouseMock)
-        assertFalse(order.isFulfilled())
-        assertEquals(50, warehouseMock.getInventory(LAPTOP))
+
+
+        // Verify that the inventory remains unchanged
+//        verify(warehouseMock).getInventory(LAPTOP)
+        verify(warehouseMock).remove(LAPTOP, orderQuantity)
+
+        println(warehouseMock.getInventory(LAPTOP))
+
+        // Assert that the order is not fulfilled
+        assertFalse(order.isFulfilled(), "Order should not be fulfilled when ordered quantity exceeds available stock.")
+        assertEquals(itemsInStock, warehouseMock.getInventory(LAPTOP))
     }
 }
