@@ -11,11 +11,11 @@ class OrderInteractionTest {
 
     @Test
     fun `test warehouse capacity is reduced on fulfilling order`() {
-        val order = Order(LAPTOP, 50)
+        val order = Order(product = LAPTOP, quantity =  50)
         val warehouseMock = mock(Warehouse::class.java)
 
-        `when`(warehouseMock.getInventory(LAPTOP)).thenReturn(0)
-        `when`(warehouseMock.remove(LAPTOP, 50)).thenReturn(true)
+        `when`(warehouseMock.getInventory(product = LAPTOP)).thenReturn(0)
+        `when`(warehouseMock.remove(product = LAPTOP, quantity = 50)).thenReturn(true)
 
         order.fulFill(warehouseMock)
         assertTrue(order.isFulfilled())
